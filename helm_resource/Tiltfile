@@ -85,7 +85,7 @@ def helm_resource(
     fail('image_deps and image_keys must have the same length, so that we know how to inject images into the helm chart;')
 
   is_windows = True if os.name == "nt" else False
-  python_cmd = ['py', '-3'] if is_windows else ['python3']
+  python_cmd = ['uv', 'run']
   apply_cmd = python_cmd + [_helm_apply_path]
   delete_cmd = python_cmd + [_helm_delete_path]
   env = {
